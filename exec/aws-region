@@ -5,6 +5,7 @@ function main {
   source "$shome/script/profile"
 
   local nm_region="${0##*/}"
+  nm_region="${nm_region#aws-}"
   
   if [[ -n "${DEBUG:-}" ]]; then
     set -x
