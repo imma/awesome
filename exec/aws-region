@@ -6,7 +6,7 @@ function main {
 
   local nm_region="${0##*/}"
   
-  export AWS_PROFILE="${AWS_PROFILE_PREFIX:-}${nm_region}${AWS_PROFILE_SUFFIX:-}" 
+  export AWS_PROFILE="${CONTEXT_PREFIX:-}${nm_region}${CONTEXT_SUFFIX:-}" 
   exec aws "$@"
 }
 
