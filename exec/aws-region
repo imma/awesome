@@ -11,7 +11,7 @@ function main {
     set -x
   fi
   export AWS_PROFILE="${CONTEXT_ACCOUNT:+$CONTEXT_ACCOUNT-}${CONTEXT_ENV:+$CONTEXT_ENV-}${nm_region}" 
-  exec aws "$@"
+  exec "$@"
 }
 
 source sub "$BASH_SOURCE" "$@"
