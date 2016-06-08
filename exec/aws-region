@@ -6,6 +6,8 @@ function main {
 
   local nm_region="${0##*/}"
   nm_region="${nm_region#aws-}"
+
+  export AWS_PROFILE="${CONTEXT_ORG:+$CONTEXT_ORG-}${CONTEXT_ENV:+$CONTEXT_ENV-}${nm_region}"
   
   if [[ -n "${DEBUG:-}" ]]; then
     set -x
