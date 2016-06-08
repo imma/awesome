@@ -10,7 +10,6 @@ function main {
   if [[ -n "${DEBUG:-}" ]]; then
     set -x
   fi
-  export AWS_PROFILE="${CONTEXT_ORG:+$CONTEXT_ORG-}${CONTEXT_ENV:+$CONTEXT_ENV-}${nm_region}" 
   exec "$@"
 }
 
