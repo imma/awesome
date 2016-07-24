@@ -6,7 +6,7 @@ function main {
 
   export tmp_zones="$(mktemp -d -t XXXXXX)"
   trap 'rm -rf "$tmp_zones"' EXIT
-  aws regions | runmany 4 'aws $1 ec2 describe-availability-zones > "$tmp_zones/$1.json"' 
+  aws regions | runmany 5 'aws $1 ec2 describe-availability-zones > "$tmp_zones/$1.json"' 
   (set +f; cat "$tmp_zones"/*.json) | jq -r '.AvailabilityZones[] | "\(.RegionName) \(.ZoneName)"'
 }
 
