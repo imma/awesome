@@ -5,4 +5,6 @@ export AWS_DEFAULT_REGION="${CONTEXT_REGION}"
 export CONTEXT_REGION="${CONTEXT_REGION#aws-}"
 export AWS_PROFILE="${CONTEXT_ORG:+$CONTEXT_ORG-}${CONTEXT_ENV:+$CONTEXT_ENV-}${CONTEXT_REGION}"
 
-source sub-middleware "$BASH_SOURCE" "$@"
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  source sub-middleware "$BASH_SOURCE" "$@"
+fi
