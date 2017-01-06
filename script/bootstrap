@@ -4,7 +4,7 @@ function bootstrap {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  block compile virtualenv
+  block compile virtualenv27
 
   set +u; source "$shome/vendor/virtualenv/bin/activate"; set -u
 
