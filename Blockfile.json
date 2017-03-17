@@ -1,6 +1,7 @@
 {
   "require": [
     "context",
-    "aws"
+    "aws",
+    "aqq"
   ]
 }
