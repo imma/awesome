@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -efu
+
+function main {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+
+  block compile virtualenv
+}
+
+main "$@"
