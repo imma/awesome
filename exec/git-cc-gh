@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+function main {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  local nm_repo="${1//\//--}"; shift
+  local nm_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+  git remote remove origin || true
+  git remote add origin "git@github.com:$nm_repo"
+  git branch --set-upstream "$nm_branch" "origin/$nm_branch"
+  git fetch origin
+}
+
+source sub "$BASH_SOURCE" "$@"
