@@ -4,7 +4,7 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  local nm_repo="${1//\//--}"; shift
+  local nm_repo="$1"; shift
   local nm_branch="$(git rev-parse --abbrev-ref HEAD)"
 
   git remote remove origin || true
