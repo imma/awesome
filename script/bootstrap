@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
-set -efu
-
 function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+  source normalize
+
+  case "${1:-}" in
+    wheels)
+      export PIP_WHEEL=1
+      ;;
+  esac
 
   block compile virtualenv
 }
