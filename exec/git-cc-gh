@@ -13,7 +13,6 @@ function main {
       ;;
   esac
 
-  local nm_repo="${nm_repo//\//--}"
   local nm_branch="$(git rev-parse --abbrev-ref HEAD)"
 
   git remote remove origin || true
