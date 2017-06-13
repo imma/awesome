@@ -19,7 +19,7 @@ function main {
   git remote remove origin || true
   git remote add origin "$(git cc "$nm_repo" .cloneUrlHttp)"
   git fetch origin
-  git branch --set-upstream-to "origin/$nm_branch"
+  git branch --set-upstream-to "origin/$nm_branch" || git push -u origin "$nm_branch"
 }
 
 source sub "$BASH_SOURCE" "$@"
