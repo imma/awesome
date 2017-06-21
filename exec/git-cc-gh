@@ -15,10 +15,11 @@ function main {
 
   local nm_branch="$(git rev-parse --abbrev-ref HEAD)"
 
-  git remote remove origin || true
-  git remote add origin "git@github.com:$nm_repo"
-  git fetch origin
-  git branch --set-upstream-to "origin/$nm_branch" || git push -u origin "$nm_branch"
+  local nm_remote='gh'
+  git remote add ${nm_remote} meh 2>/dev/null || true
+  git remote set-url ${nm_remote} "git@github.com:$nm_repo"
+  git fetch ${nm_remote}
+  git branch --set-upstream-to "${nm_remote}/$nm_branch" || git push -u ${nm_remote} "$nm_branch"
 }
 
 source sub "$BASH_SOURCE" "$@"
