@@ -10,7 +10,13 @@ function main {
       ;;
   esac
 
-  block compile virtualenv
+  block compile virtualenv27
+  mkdir -p "$shome/bin"
+  ln -nfs \
+    ../vendor/virtualenv/bin/amicleaner \
+    ../vendor/virtualenv/bin/awslimitchecker \
+    ../vendor/virtualenv/bin/aws-shell \
+    "$shome/bin/"
 }
 
 main "$@"
