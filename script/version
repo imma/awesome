@@ -4,8 +4,12 @@ function version {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  local ver_vault="$(vault --version 2>/dev/null | awk '{print $2}' | perl -pe 's{^v}{}' || true)"
-  jq -n --arg vault "$ver_vault" '{vault: $vault}'
+  local ver_chamber="$(cat "$shome/.chamber-version" 2>/dev/null || true)"
+  local ver_awsvault="$(aws vault --version 2>/dev/null | perl -pe 's{^v}{}' || true)"
+  jq -n \
+    --arg chamber "$ver_chamber" \
+    --arg awsvault "$ver_awsvault" \
+    '{chamber: $chamber, awsvault: $awsvault}'
 }
 
 version "$@"
