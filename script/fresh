@@ -4,11 +4,19 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  if ! type -P aws-shell >/dev/null; then
+  if [[ ! -x "$shome/vendor/virtualenv/bin/aws-shell" ]]; then
     return 1
   fi
 
   if [[ ! -x "$shome/vendor/virtualenv/bin/awslimitchecker" ]]; then
+    return 1
+  fi
+
+  if [[ "$($shome/script/version | jq -r '.chamber')" != "$CHAMBER_VERSION" ]]; then
+    return 1
+  fi
+
+  if [[ "$($shome/script/version | jq -r '.awsvault')" != "$AWSVAULT_VERSION" ]]; then
     return 1
   fi
 
