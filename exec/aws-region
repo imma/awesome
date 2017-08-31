@@ -2,6 +2,7 @@
 
 CONTEXT_REGION="${BASH_SOURCE##*/aws-}"
 export AWS_DEFAULT_REGION="${CONTEXT_REGION}"
+export AWS_REGION="${CONTEXT_REGION}"
 export CONTEXT_REGION="${CONTEXT_REGION#aws-}"
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
