@@ -5,7 +5,7 @@ function _awesome_profile {
   PATH="$shome/bin:$shome/exec:$PATH"
 
   AWSVAULT_VERSION='3.7.1'
-  CHAMBER_VERSION='1.3.0'
+  CHAMBER_VERSION='1.6.0'
 }
 
 _awesome_profile
