@@ -20,6 +20,10 @@ function main {
     return 1
   fi
 
+  if [[ "$($shome/script/version | jq -r '.awless')" != "$AWLESS_VERSION" ]]; then
+    return 1
+  fi
+
   return 0
 }
 

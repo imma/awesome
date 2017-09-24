@@ -6,10 +6,12 @@ function version {
 
   local ver_chamber="$(cat "$shome/.chamber-version" 2>/dev/null || true)"
   local ver_awsvault="$(aws vault --version 2>/dev/null | perl -pe 's{^v}{}' || true)"
+  local ver_awless="$(awless --version 2>/dev/null | cut -d, -f1 | cut -d= -f2 | perl -pe 's{^v}{}' || true)"
   jq -n \
     --arg chamber "$ver_chamber" \
     --arg awsvault "$ver_awsvault" \
-    '{chamber: $chamber, awsvault: $awsvault}'
+    --arg awless "$ver_awless" \
+    '{chamber: $chamber, awsvault: $awsvault, awless: $awless}'
 }
 
 version "$@"
