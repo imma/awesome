@@ -5,28 +5,6 @@ function main {
   source "$shome/script/profile"
   source normalize
 
-  case "${1:-}" in
-    wheels)
-      export PIP_WHEEL=1
-      ;;
-  esac
-
-  block compile virtualenv27
-  mkdir -p "$shome/bin"
-  ln -nfs \
-    ../vendor/virtualenv/bin/aws-shell \
-    "$shome/bin/"
-
-  ln -nfs \
-    ../vendor/virtualenv/bin/amicleaner \
-    "$shome/bin/aws-cleaner"
-  rm -f "$shome/bin/awscleaner"
-
-  ln -nfs \
-    ../vendor/virtualenv/bin/awslimitchecker \
-    "$shome/bin/aws-limitchecker"
-  rm -f "$shome/bin/awslimitchecker"
-
   local url_awsvault_Darwin="https://github.com/99designs/aws-vault/releases/download/v${AWSVAULT_VERSION}/aws-vault-darwin-amd64"
   local url_awsvault_Linux="https://github.com/99designs/aws-vault/releases/download/v${AWSVAULT_VERSION}/aws-vault-linux-amd64"
 
