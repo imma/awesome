@@ -5,6 +5,8 @@ function main {
   source "$shome/script/profile"
   source normalize
 
+  mkdir -p "$shome/bin"
+
   local url_awsvault_Darwin="https://github.com/99designs/aws-vault/releases/download/v${AWSVAULT_VERSION}/aws-vault-darwin-amd64"
   local url_awsvault_Linux="https://github.com/99designs/aws-vault/releases/download/v${AWSVAULT_VERSION}/aws-vault-linux-amd64"
 
