@@ -4,5 +4,6 @@
     "aws-vault",
     "chamber",
     "awless"
-  ]
+  ],
+  "versions": {}
 }
